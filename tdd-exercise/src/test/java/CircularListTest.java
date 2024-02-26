@@ -34,6 +34,12 @@ public class CircularListTest {
     }
 
     @Test
+    void testListIsEmptyAfterPopulation() {
+        populateList(List.of(1,2,3,4));
+        assertEquals(false, circularList.isEmpty());
+    }
+
+    @Test
     void testAddOneElement() {
         populateList(List.of(3));
         assertAll(
