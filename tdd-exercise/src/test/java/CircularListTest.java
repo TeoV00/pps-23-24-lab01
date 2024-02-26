@@ -58,7 +58,7 @@ public class CircularListTest {
     }
 
     @Test
-    void testIfListIsCircular() {
+    void testListIsCircularWithNext() {
         List<Integer> listElements = List.of(1,2);
         listElements.forEach(element -> circularList.add(element));
         circularList.next();
