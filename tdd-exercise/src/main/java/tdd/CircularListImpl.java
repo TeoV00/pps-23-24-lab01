@@ -31,16 +31,24 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> next() {
-        Integer element = this.list.get(this.listIndex);
-        incrementListIndex();
-        return Optional.of(element);
+        if (!isEmpty()) {
+            Integer element = this.list.get(this.listIndex);
+            incrementListIndex();
+            return Optional.of(element);
+        } else {
+            return Optional.empty();
+        }
     }
 
     @Override
     public Optional<Integer> previous() {
+        if (!isEmpty()) {
         Integer element = this.list.get(this.listIndex);
         decrementListIndex();
         return Optional.of(element);
+        } else {
+            return Optional.empty();
+        }
     }
 
     @Override

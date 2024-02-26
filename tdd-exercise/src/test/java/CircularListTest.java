@@ -29,7 +29,7 @@ public class CircularListTest {
     }
 
     @Test
-    void testIsEmpty() {
+    void testIfListInitiallyEmpty() {
         assertEquals(true, circularList.isEmpty());
     }
 
@@ -76,6 +76,24 @@ public class CircularListTest {
         this.populateList(List.of(1,2));
         circularList.previous();
         assertEquals(Optional.of(2), circularList.previous());
+    }
+
+    @Test
+    void testNextWithEmptyList() {
+        int attemps = 4;
+        for (int i = 0; i < attemps; i++) {
+            circularList.next();
+        }
+        assertEquals(Optional.empty(), circularList.next());
+    }
+
+    @Test
+    void testPreviousWithEmptyList() {
+        int attemps = 4;
+        for (int i = 0; i < attemps; i++) {
+            circularList.previous();
+        }
+        assertEquals(Optional.empty(), circularList.previous());
     }
 
     private void populateList(List<Integer> listElements) {
