@@ -15,7 +15,7 @@ public class SimpleBankAccountWithAtmTest {
     @BeforeEach
     void beforeEach() {
         this.accountHolder = new AccountHolder("Teo", "Viola", 0);
-        this.bankAccount = new SimpleBankAccountWithAtm(accountHolder, 0, ()-> {
+        this.bankAccount = new SimpleBankAccountWithAtm(accountHolder, 0, (withdrawAmount)-> {
             return TRANSACTION_FEE;
         });
     }

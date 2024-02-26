@@ -1,5 +1,5 @@
 package example.model;
 
 public interface WithdrawFeeStrategy {
-    double getFee();
+    double getFee(double withdrawAmount);
 }
