@@ -96,6 +96,15 @@ public class CircularListTest {
         assertEquals(Optional.empty(), circularList.previous());
     }
 
+    @Test
+    void testResetListPosition() {
+        populateList(List.of(1,2,3));
+        circularList.next();
+        circularList.next();
+        circularList.reset();
+        assertEquals(Optional.of(1), circularList.next());
+    }
+
     private void populateList(List<Integer> listElements) {
         listElements.forEach(element -> circularList.add(element));
     }

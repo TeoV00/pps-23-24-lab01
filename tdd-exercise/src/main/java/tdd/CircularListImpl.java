@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
+    private static final int FIRST_ELEMENT_INDEX = 0;
     private final int NEXT_INDEX_INCREMENT = 1;
     private final int PREVIOUS_INDEX_DECREMENT = -1;
     private List<Integer> list;
-    private int listIndex = 0;
+    private int listIndex = FIRST_ELEMENT_INDEX;
 
     public CircularListImpl() {
         this.list = new ArrayList<>();
@@ -53,8 +54,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void reset() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'reset'");
+        this.listIndex = FIRST_ELEMENT_INDEX;
     }
 
     private void incrementListIndex() {
