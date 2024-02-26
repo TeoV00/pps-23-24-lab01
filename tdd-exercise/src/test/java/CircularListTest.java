@@ -56,4 +56,13 @@ public class CircularListTest {
         }
         assertEquals(expectedList, actuaList);
     }
+
+    @Test
+    void testIfListIsCircular() {
+        List<Integer> listElements = List.of(1,2);
+        listElements.forEach(element -> circularList.add(element));
+        circularList.next();
+        circularList.next();
+        assertEquals(Optional.of(1), circularList.next());
+    }
 }

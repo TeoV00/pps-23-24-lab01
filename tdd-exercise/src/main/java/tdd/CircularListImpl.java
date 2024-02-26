@@ -30,7 +30,7 @@ public class CircularListImpl implements CircularList {
     @Override
     public Optional<Integer> next() {
         Integer element = this.list.get(this.listIndex);
-        nextElementIndex();
+        updateListIndex();
         return Optional.of(element);
     }
 
@@ -46,7 +46,7 @@ public class CircularListImpl implements CircularList {
         throw new UnsupportedOperationException("Unimplemented method 'reset'");
     }
 
-    private void nextElementIndex() {
+    private void updateListIndex() {
         this.listIndex = this.listIndex + 1 < this.size() ? this.listIndex + 1 : 0;
     }
 }
