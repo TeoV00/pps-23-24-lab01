@@ -65,6 +65,13 @@ public class CircularListTest {
         assertEquals(Optional.of(1), circularList.next());
     }
 
+    @Test
+    void testListIsCircularWithPrevious() {
+        this.populateList(List.of(1,2));
+        circularList.previous();
+        assertEquals(Optional.of(2), circularList.previous());
+    }
+
     private void populateList(List<Integer> listElements) {
         listElements.forEach(element -> circularList.add(element));
     }

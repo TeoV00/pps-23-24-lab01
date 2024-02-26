@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
+    private final int NEXT_INDEX_INCREMENT = 1;
+    private final int PREVIOUS_INDEX_DECREMENT = -1;
     private List<Integer> list;
     private int listIndex = 0;
 
@@ -30,14 +32,15 @@ public class CircularListImpl implements CircularList {
     @Override
     public Optional<Integer> next() {
         Integer element = this.list.get(this.listIndex);
-        updateListIndex();
+        incrementListIndex();
         return Optional.of(element);
     }
 
     @Override
     public Optional<Integer> previous() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'previous'");
+        Integer element = this.list.get(this.listIndex);
+        decrementListIndex();
+        return Optional.of(element);
     }
 
     @Override
@@ -46,7 +49,11 @@ public class CircularListImpl implements CircularList {
         throw new UnsupportedOperationException("Unimplemented method 'reset'");
     }
 
-    private void updateListIndex() {
-        this.listIndex = this.listIndex + 1 < this.size() ? this.listIndex + 1 : 0;
+    private void incrementListIndex() {
+        this.listIndex = this.listIndex + NEXT_INDEX_INCREMENT < this.size() ? this.listIndex + NEXT_INDEX_INCREMENT : 0;
+    }
+
+    private void decrementListIndex() {
+        this.listIndex = this.listIndex - PREVIOUS_INDEX_DECREMENT >= 0 ? this.listIndex - PREVIOUS_INDEX_DECREMENT: this.size()-1;
     }
 }
