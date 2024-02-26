@@ -35,7 +35,7 @@ public class CircularListTest {
 
     @Test
     void testAddOneElement() {
-        circularList.add(3);
+        populateList(List.of(3));
         assertAll(
             ()-> assertEquals(Optional.of(3), circularList.next()),
             () -> assertEquals(1, circularList.size())
@@ -46,7 +46,7 @@ public class CircularListTest {
     void testMultipleAddElements() {
         List<Integer> expectedList = List.of(0,1,4);
         List<Integer> actuaList = new ArrayList<>();
-        expectedList.forEach(e -> circularList.add(e));
+        populateList(expectedList);
 
         for(int index = 0; index < circularList.size(); index++) {
             var nextElement = circularList.next();
@@ -59,10 +59,13 @@ public class CircularListTest {
 
     @Test
     void testListIsCircularWithNext() {
-        List<Integer> listElements = List.of(1,2);
-        listElements.forEach(element -> circularList.add(element));
+        this.populateList(List.of(1,2));
         circularList.next();
         circularList.next();
         assertEquals(Optional.of(1), circularList.next());
+    }
+
+    private void populateList(List<Integer> listElements) {
+        listElements.forEach(element -> circularList.add(element));
     }
 }
