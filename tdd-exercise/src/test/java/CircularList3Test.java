@@ -20,9 +20,6 @@ public class CircularList3Test {
     @Test
     void testFilteredNextWithoutFiltering() {
         populateList(List.of(4,5,1));
-        filteredCircularList.add(4);
-        filteredCircularList.add(5);
-        filteredCircularList.add(1);
 
         assertEquals(Optional.of(4), filteredCircularList.filteredNext(e -> true));
     }
@@ -33,6 +30,12 @@ public class CircularList3Test {
         filteredCircularList.next();
         filteredCircularList.next();
         assertEquals(Optional.of(4), filteredCircularList.filteredNext((e)-> isEven(e)));
+    }
+
+    @Test
+    void testAfterNextWithEmptyListWithoutFilter() {
+        filteredCircularList.next();
+        assertEquals(Optional.empty(), filteredCircularList.filteredNext((e)-> true));
     }
 
     private void populateList(List<Integer> listElements) {
