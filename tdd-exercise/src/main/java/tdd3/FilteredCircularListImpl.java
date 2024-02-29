@@ -8,10 +8,10 @@ import tdd.CircularListImpl;
 
 public class FilteredCircularListImpl implements FilteredCircularList {
 
-    CircularList circularList;
+    private CircularList circularList;
 
     public FilteredCircularListImpl() {
-        circularList = new CircularListImpl();
+        this.circularList = new CircularListImpl();
     }
 
     @Override
