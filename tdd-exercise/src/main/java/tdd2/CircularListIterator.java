@@ -1,6 +1,7 @@
 package tdd2;
 
 import java.util.Iterator;
+import java.util.Optional;
 
 public interface CircularListIterator {
 
@@ -8,8 +9,8 @@ public interface CircularListIterator {
 
     Integer size();
 
-    Iterator<Integer> forwardIterator();
+    Iterator<Optional<Integer>> forwardIterator();
 
-    Iterator<Integer> backwardIterator();
+    Iterator<Optional<Integer>> backwardIterator();
 
 }

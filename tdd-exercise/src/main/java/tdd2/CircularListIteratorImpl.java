@@ -20,18 +20,18 @@ public class CircularListIteratorImpl implements CircularListIterator {
     }
 
     @Override
-    public Iterator<Integer> forwardIterator() {
+    public Iterator<Optional<Integer>> forwardIterator() {
         return makeIterator((l) -> l.next());
     }
 
     @Override
-    public Iterator<Integer> backwardIterator() {
+    public Iterator<Optional<Integer>> backwardIterator() {
         return makeIterator((l) -> l.previous());
     }
 
-    private Iterator<Integer> makeIterator(Function<CircularList, Optional<Integer>> nextStrategy) {
+    private Iterator<Optional<Integer>> makeIterator(Function<CircularList, Optional<Integer>> nextStrategy) {
 
-        return new Iterator<Integer>() {
+        return new Iterator<Optional<Integer>>() {
 
             @Override
             public boolean hasNext() {
@@ -39,8 +39,8 @@ public class CircularListIteratorImpl implements CircularListIterator {
             }
 
             @Override
-            public Integer next() {
-                return nextStrategy.apply(list).get();
+            public Optional<Integer> next() {
+                return nextStrategy.apply(list);
             }
         };
     }
