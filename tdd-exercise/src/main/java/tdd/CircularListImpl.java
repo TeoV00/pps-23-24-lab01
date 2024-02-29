@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CircularListImpl implements CircularList {
+public class CircularListImpl implements CircularListSimple {
     private static final int FIRST_ELEMENT_INDEX = 0;
     private final int NEXT_INDEX_INCREMENT = 1;
     private final int PREVIOUS_INDEX_DECREMENT = -1;

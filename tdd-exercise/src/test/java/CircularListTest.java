@@ -7,16 +7,15 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import tdd.CircularList;
 import tdd.CircularListImpl;
+import tdd.CircularListSimple;
 
 /**
  * The test suite for testing the CircularList implementation
  */
 public class CircularListTest {
 
-    private CircularList circularList;
+    private CircularListSimple circularList;
 
     @BeforeEach
     void beforeEach() {

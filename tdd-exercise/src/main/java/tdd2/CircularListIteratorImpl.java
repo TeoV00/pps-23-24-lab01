@@ -5,9 +5,11 @@ import java.util.Optional;
 import java.util.function.Function;
 import tdd.CircularList;
 import tdd.CircularListImpl;
+import tdd.CircularListSimple;
 
 public class CircularListIteratorImpl implements CircularListIterator {
-    private CircularList list = new CircularListImpl();
+    
+    private CircularListSimple list = new CircularListImpl();
 
     @Override
     public void add(int element) {
@@ -15,7 +17,7 @@ public class CircularListIteratorImpl implements CircularListIterator {
     }
 
     @Override
-    public Integer size() {
+    public int size() {
         return this.list.size();
     }
 
@@ -29,7 +31,7 @@ public class CircularListIteratorImpl implements CircularListIterator {
         return makeIterator((l) -> l.previous());
     }
 
-    private Iterator<Optional<Integer>> makeIterator(Function<CircularList, Optional<Integer>> nextStrategy) {
+    private Iterator<Optional<Integer>> makeIterator(Function<CircularListSimple, Optional<Integer>> nextStrategy) {
 
         return new Iterator<Optional<Integer>>() {
 
@@ -43,5 +45,11 @@ public class CircularListIteratorImpl implements CircularListIterator {
                 return nextStrategy.apply(list);
             }
         };
+    }
+
+    @Override
+    public boolean isEmpty() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 }

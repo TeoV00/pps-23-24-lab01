@@ -2,9 +2,9 @@ package tdd3;
 
 import java.util.Optional;
 import java.util.function.Function;
-import tdd.CircularList;
+import tdd.CircularListSimple;
 
-public interface FilteredCircularList extends CircularList{
+public interface FilteredCircularList extends CircularListSimple {
 
     /**
      *  @param filter the filter used to search next element in circula list

@@ -2,13 +2,12 @@ package tdd3;
 
 import java.util.Optional;
 import java.util.function.Function;
-
-import tdd.CircularList;
 import tdd.CircularListImpl;
+import tdd.CircularListSimple;
 
 public class FilteredCircularListImpl implements FilteredCircularList {
 
-    private CircularList circularList;
+    private CircularListSimple circularList;
 
     public FilteredCircularListImpl() {
         this.circularList = new CircularListImpl();

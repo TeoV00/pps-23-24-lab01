@@ -3,14 +3,20 @@ package tdd2;
 import java.util.Iterator;
 import java.util.Optional;
 
-public interface CircularListIterator {
+import tdd.CircularList;
 
-    void add(int element);
+public interface CircularListIterator extends CircularList {
 
-    Integer size();
-
+    /**
+     * 
+     * @return
+     */
     Iterator<Optional<Integer>> forwardIterator();
 
+    /**
+     * 
+     * @return
+     */
     Iterator<Optional<Integer>> backwardIterator();
 
 }
