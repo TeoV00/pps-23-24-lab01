@@ -1,11 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-
 import java.util.Iterator;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import tdd2.CircularListIterator;
@@ -37,6 +32,15 @@ public class CircularList2Test {
         forwardIterator.next();
         forwardIterator.next();
         assertEquals(1, forwardIterator.next());
+    }
+
+    @Test
+    void testBackwardIteratorCircularity() {
+        circularListIterator.add(1);
+        circularListIterator.add(2);
+        Iterator<Integer> backwardIterator = circularListIterator.backwardIterator();
+        backwardIterator.next();
+        assertEquals(2, backwardIterator.next());
     }
 
 }
