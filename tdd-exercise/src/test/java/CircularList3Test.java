@@ -1,40 +1,37 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.List;
 import java.util.Optional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import tdd3.FilteredCircularList;
 import tdd3.FilteredCircularListImpl;
 
 public class CircularList3Test {
-    FilteredCircularList filteredCircularList;
+
+    private FilteredCircularList filteredCircularList;
 
     @BeforeEach
     void beforeEach() {
-        filteredCircularList = new FilteredCircularListImpl();
+        this.filteredCircularList = new FilteredCircularListImpl();
     }
 
     @Test
     void testFilteredNextWithoutFiltering() {
         populateList(List.of(4,5,1));
-
-        assertEquals(Optional.of(4), filteredCircularList.filteredNext(e -> true));
+        assertEquals(Optional.of(4), this.filteredCircularList.filteredNext(e -> true));
     }
 
     @Test
     void testFilteredNextAfterNext() {
         populateList(List.of(1,2,3,9,4,5,6));
-        filteredCircularList.next();
-        filteredCircularList.next();
+        this.filteredCircularList.next();
+        this.filteredCircularList.next();
         assertEquals(Optional.of(4), filteredCircularList.filteredNext((e)-> isEven(e)));
     }
 
     @Test
     void testAfterNextWithEmptyListWithoutFilter() {
-        filteredCircularList.next();
+        this.filteredCircularList.next();
         assertEquals(Optional.empty(), filteredCircularList.filteredNext((e)-> true));
     }
 

@@ -1,16 +1,14 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Iterator;
 import java.util.Optional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import tdd2.CircularListIterator;
 import tdd2.CircularListIteratorImpl;
 
 public class CircularList2Test {
 
-    CircularListIterator circularListIterator;
+    private CircularListIterator circularListIterator;
 
     @BeforeEach
     void beforeEach() {
@@ -19,18 +17,17 @@ public class CircularList2Test {
 
     @Test
     void testAddElementsToList() {
-        circularListIterator.add(1);
-        circularListIterator.add(2);
-        circularListIterator.add(3);
-
+        this.circularListIterator.add(1);
+        this.circularListIterator.add(2);
+        this.circularListIterator.add(3);
         assertEquals(3, circularListIterator.size());
     }
 
     @Test
     void testForwardIteratorCircularity() {
-        circularListIterator.add(1);
-        circularListIterator.add(2);
-        Iterator<Optional<Integer>> forwardIterator = circularListIterator.forwardIterator();
+        this.circularListIterator.add(1);
+        this.circularListIterator.add(2);
+        Iterator<Optional<Integer>> forwardIterator = this.circularListIterator.forwardIterator();
         forwardIterator.next();
         forwardIterator.next();
         assertEquals(Optional.of(1), forwardIterator.next());
@@ -38,23 +35,23 @@ public class CircularList2Test {
 
     @Test
     void testBackwardIteratorCircularity() {
-        circularListIterator.add(1);
-        circularListIterator.add(2);
-        Iterator<Optional<Integer>> backwardIterator = circularListIterator.backwardIterator();
+        this.circularListIterator.add(1);
+        this.circularListIterator.add(2);
+        Iterator<Optional<Integer>> backwardIterator = this.circularListIterator.backwardIterator();
         backwardIterator.next();
         assertEquals(Optional.of(2), backwardIterator.next());
     }
 
     @Test
     void testForwardIteratorWithEmptyList() {
-        Iterator<Optional<Integer>> forwardIterator = circularListIterator.forwardIterator();
+        Iterator<Optional<Integer>> forwardIterator = this.circularListIterator.forwardIterator();
         forwardIterator.next();
         assertEquals(Optional.empty(), forwardIterator.next());
     }
 
     @Test
     void testBackwardIteratorWithEmptyList() {
-        Iterator<Optional<Integer>> backwardIterator = circularListIterator.backwardIterator();
+        Iterator<Optional<Integer>> backwardIterator = this.circularListIterator.backwardIterator();
         backwardIterator.next();
         assertEquals(Optional.empty(), backwardIterator.next());
     }

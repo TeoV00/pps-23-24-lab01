@@ -3,7 +3,6 @@ package tdd2;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.function.Function;
-import tdd.CircularList;
 import tdd.CircularListImpl;
 import tdd.CircularListSimple;
 
@@ -49,7 +48,6 @@ public class CircularListIteratorImpl implements CircularListIterator {
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return this.list.isEmpty();
     }
 }
