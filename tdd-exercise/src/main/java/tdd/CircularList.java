@@ -1,7 +1,5 @@
 package tdd;
 
-import java.util.Optional;
-
 /**
  * Represents a list of integers, with a built-in iterator that is bidirectional and circular.
  * Example: with a list like {1,2,3}, the first call of next() returns 1, the second call returns 2,
