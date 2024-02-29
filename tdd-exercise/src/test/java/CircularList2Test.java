@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Iterator;
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,19 +30,33 @@ public class CircularList2Test {
     void testForwardIteratorCircularity() {
         circularListIterator.add(1);
         circularListIterator.add(2);
-        Iterator<Integer> forwardIterator = circularListIterator.forwardIterator();
+        Iterator<Optional<Integer>> forwardIterator = circularListIterator.forwardIterator();
         forwardIterator.next();
         forwardIterator.next();
-        assertEquals(1, forwardIterator.next());
+        assertEquals(Optional.of(1), forwardIterator.next());
     }
 
     @Test
     void testBackwardIteratorCircularity() {
         circularListIterator.add(1);
         circularListIterator.add(2);
-        Iterator<Integer> backwardIterator = circularListIterator.backwardIterator();
+        Iterator<Optional<Integer>> backwardIterator = circularListIterator.backwardIterator();
         backwardIterator.next();
-        assertEquals(2, backwardIterator.next());
+        assertEquals(Optional.of(2), backwardIterator.next());
+    }
+
+    @Test
+    void testForwardIteratorWithEmptyList() {
+        Iterator<Optional<Integer>> forwardIterator = circularListIterator.forwardIterator();
+        forwardIterator.next();
+        assertEquals(Optional.empty(), forwardIterator.next());
+    }
+
+    @Test
+    void testBackwardIteratorWithEmptyList() {
+        Iterator<Optional<Integer>> backwardIterator = circularListIterator.backwardIterator();
+        backwardIterator.next();
+        assertEquals(Optional.empty(), backwardIterator.next());
     }
 
 }
