@@ -10,33 +10,33 @@ import tdd3.FilteredCircularList;
 import tdd3.FilteredCircularListImpl;
 
 public class CircularList3Test {
-    FilteredCircularList filteredCirculaList;
+    FilteredCircularList filteredCircularList;
 
     @BeforeEach
     void beforeEach() {
-        filteredCirculaList = new FilteredCircularListImpl();
+        filteredCircularList = new FilteredCircularListImpl();
     }
 
     @Test
     void testFilteredNextWithoutFiltering() {
         populateList(List.of(4,5,1));
-        filteredCirculaList.add(4);
-        filteredCirculaList.add(5);
-        filteredCirculaList.add(1);
+        filteredCircularList.add(4);
+        filteredCircularList.add(5);
+        filteredCircularList.add(1);
 
-        assertEquals(Optional.of(4), filteredCirculaList.filteredNext(e -> true));
+        assertEquals(Optional.of(4), filteredCircularList.filteredNext(e -> true));
     }
 
     @Test
     void testFilteredNextAfterNext() {
         populateList(List.of(1,2,3,9,4,5,6));
-        filteredCirculaList.next();
-        filteredCirculaList.next();
-        assertEquals(Optional.of(4), filteredCirculaList.filteredNext((e)-> isEven(e)));
+        filteredCircularList.next();
+        filteredCircularList.next();
+        assertEquals(Optional.of(4), filteredCircularList.filteredNext((e)-> isEven(e)));
     }
 
     private void populateList(List<Integer> listElements) {
-        listElements.forEach(element -> filteredCirculaList.add(element));
+        listElements.forEach(element -> filteredCircularList.add(element));
     }
 
     private Boolean isEven(Integer element) {
